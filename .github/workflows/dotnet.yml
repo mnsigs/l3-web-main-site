@@ -21,7 +21,6 @@ name: Build and deploy ASP.Net Core app to an Azure Web App
 
 env:
   AZURE_WEBAPP_NAME: 'webapp-mnsigs-zops'  # set this to the name of your Azure Web App
-  AZURE_WEBAPP_PACKAGE_PATH: 'app'      # set this to the path to your web app project, defaults to the repository root
 
 on:
   push:
@@ -45,7 +44,7 @@ jobs:
 
       - name: Build app
         run: |
-          cd ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+          cd app
           dotnet restore  
           dotnet build --no-restore
           dotnet test --no-build --verbosity normal
