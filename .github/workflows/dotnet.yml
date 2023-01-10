@@ -54,7 +54,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: app
-          path: app/**
+          path: app/app/**
           if-no-files-found: error
 
   deploy:
