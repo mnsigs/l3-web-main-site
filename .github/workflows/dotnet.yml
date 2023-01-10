@@ -43,12 +43,20 @@ jobs:
         with:
           dotnet-version: 6.0.x
 
-      - name: Restore dependencies
+      - name: Build app
         run: |
           cd ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
           dotnet restore  
           dotnet build --no-restore
           dotnet test --no-build --verbosity normal
+          dotnet publish app/app.csproj -c Release -o website
+
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: website
+          path: app/website/**
+          if-no-files-found: error
 
   deploy:
     permissions:
