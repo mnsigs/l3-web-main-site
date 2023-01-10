@@ -49,7 +49,7 @@ jobs:
           dotnet restore  
           dotnet build --no-restore
           dotnet test --no-build --verbosity normal
-          dotnet publish app/app.csproj -c Release -o website
+          dotnet publish app.csproj -c Release -o website
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3
