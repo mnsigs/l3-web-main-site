@@ -35,10 +35,18 @@ jobs:
       runs-on: ubuntu-latest
 
       steps:
+        - uses: azure/login@v1
+          with:
+            creds: ${{ secrets.AZURE_CREDENTIALS }}
+
         - uses: azure/webapps-deploy@v2
           with:
             app-name: 'webapp-mnsigs-zops'
             images: 'acrsemog6nncklkxhqd.azurecr.io/dotnetsample/v1:latest'
+
+        - name: logout
+          run: |
+            az logout
   # build:
   #   runs-on: ubuntu-latest
 
