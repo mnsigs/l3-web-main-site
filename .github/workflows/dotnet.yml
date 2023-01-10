@@ -48,13 +48,13 @@ jobs:
           dotnet restore  
           dotnet build --no-restore
           dotnet test --no-build --verbosity normal
-          dotnet publish app.csproj -c Release -o website
+          dotnet publish app.csproj -c Release -o app
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: website
-          path: app/website/**
+          name: app
+          path: app/**
           if-no-files-found: error
 
   deploy:
@@ -74,15 +74,15 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
-          name: website
-          path: website
+          name: app
+          path: app
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
-          package: website
+          package: app
 
       - name: logout
         run: |
