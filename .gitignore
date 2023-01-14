@@ -406,3 +406,5 @@ ClientBin/
 
 # Sample code 
 dotnet-docker-main/
+
+*.old
