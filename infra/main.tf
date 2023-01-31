@@ -49,7 +49,7 @@ resource "azapi_resource" "managed_environment" {
 
   lifecycle {
     ignore_changes = [
-        tags
+      tags
     ]
   }
 }
