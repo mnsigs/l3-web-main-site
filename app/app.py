@@ -14,6 +14,13 @@ def index():
     return render_template("pages/index.html")
 
 
+@app.route("/")
+@app.route("/about")
+@app.route("/about.html")
+def about():
+    return render_template("pages/about.html")
+
+
 def main():
     app.run()
 
