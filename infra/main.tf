@@ -1,7 +1,7 @@
 
-data "azurerm_subscription" "primary" {}
+# data "azurerm_subscription" "primary" {}
 
-data "azurerm_client_config" "current" {}
+# data "azurerm_client_config" "current" {}
 
 resource "random_string" "suffix" {
   length  = 4
@@ -40,7 +40,7 @@ resource "azapi_resource" "managed_environment" {
       appLogsConfiguration = {
         destination = "log-analytics"
         logAnalyticsConfiguration = {
-          customerId = azurerm_log_analytics_workspace.workspace.id
+          customerId = azurerm_log_analytics_workspace.workspace.workspace_id
           sharedKey  = azurerm_log_analytics_workspace.workspace.primary_shared_key
         }
       }
