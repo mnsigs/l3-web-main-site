@@ -14,11 +14,35 @@ def index():
     return render_template("pages/index.html")
 
 
-@app.route("/about/")
 @app.route("/about")
 @app.route("/about.html")
 def about():
     return render_template("pages/about.html")
+
+
+@app.route("/bylaws")
+@app.route("/members/bylaws")
+@app.route("/bylaws.html")
+def bylaws():
+    return render_template("pages/bylaws.html")
+
+
+@app.route("/contact")
+@app.route("/contact.html")
+def contact():
+    return render_template("pages/contact.html")
+
+
+@app.route("/gallery")
+@app.route("/gallery.html")
+def gallery():
+    return render_template("pages/gallery.html")
+
+
+@app.route("/officers")
+@app.route("/officers.html")
+def officers():
+    return render_template("pages/officers.html")
 
 
 @app.errorhandler(404)
