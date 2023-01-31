@@ -427,6 +427,7 @@ build/
 *.sample.json
 
 .vscode/
+*.lock.hcl
 .terraform.lock.hcl
 utilities/
 
