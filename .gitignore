@@ -429,3 +429,5 @@ build/
 .vscode/
 .terraform.lock.hcl
 utilities/
+
+name.txt
