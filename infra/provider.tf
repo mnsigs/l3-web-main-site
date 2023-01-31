@@ -8,7 +8,11 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "3.31.0"
+      version = "3.41.0"
+    }
+    azapi = {
+      source  = "Azure/azapi"
+      version = "1.3.0"
     }
     random = {
       source  = "registry.terraform.io/hashicorp/random"
@@ -24,4 +28,7 @@ provider "azurerm" {
       prevent_deletion_if_contains_resources = false
     }
   }
+}
+
+provider "azapi" {
 }
