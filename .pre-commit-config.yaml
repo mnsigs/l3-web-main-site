@@ -46,3 +46,4 @@ repos:
       name: docker build
       entry: ./utilities/builder.sh
       language: script
+      args: [ test1234 ]
