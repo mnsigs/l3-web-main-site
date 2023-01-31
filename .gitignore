@@ -404,5 +404,28 @@ ClientBin/
 ~$*
 
 
-# Sample code 
+# Sample code
 dotnet-docker-main/
+
+
+
+venv/
+
+*.pyc
+__pycache__/
+
+instance/
+
+.pytest_cache/
+.coverage
+htmlcov/
+
+dist/
+build/
+*.egg-info/
+
+*.sample.json
+
+.vscode/
+.terraform.lock.hcl
+utilities/

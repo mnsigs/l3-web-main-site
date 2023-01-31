@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+{{ super() }}
+<style type="text/css">
+  .important {
+    color: #336699;
+  }
+</style>
+{% endblock %}
+{% block content %}
+<h1>Units</h1>
+<div id="units-general">
+  <div class="row">
+    <div class="col-sm-4 col-xs-12">
+      <img src="/static/images/storage.jpg" alt="" width="320" height="240" >
+    </div>
+    <div class="col-sm-4 col-xs-12">
+        <div class="rnl-Content">
+          <h4><span>Montgomery Mini Storage </span></h4>
+          <div class="rnl-Rte-block--p"><span>1 Any Street Direction</span></div>
+          <div class="rnl-Rte-block--p"><span>Montgomery, MN 56069 </span></div><br>
+          <h4><a href="tel: 1-507-384-2900" class="rnl-EditorState-Link"><span>1-507-384-2900</span></a></h4>
+        </div>
+    </div>
+    <div class="col-sm-4 col-xs-12">
+      <div class="side-box">
+        <div><a href="/payonline" target="_self"
+            class="themed-button color-primary-background color-secondary-background-hover btn btn-primary btn-block">Pay Online</a></div>
+        <div>
+          <div class="rnl-Content">
+            <div class="rnl-Rte-block--p"><span style="font-weight:bold">Office Hours: </span><span>By Appointment Only
+              </span></div>
+            <div class="rnl-Rte-block--p"><span style="font-weight:bold">Access Hours:</span><span> 24-hours / 7-days a
+                week</span></div>
+          </div>
+        </div>
+        <div><a href="/contact" target="_self"
+            class="themed-button color-primary-background color-secondary-background-hover btn btn-primary btn-block">Contact</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- loop through all of our units, and make a table of name, size, price, quantity available -->
+<div class="twrapper">
+  <div class="tbox a">Name</div>
+  <div class="tbox b">Size</div>
+  <div class="tbox c">Price</div>
+  <div class="tbox d">Quantity</div>
+  {% for unit in units %}
+  <div class="trow">
+    <div class="tbox">{{ unit.name }}</div>
+    <div class="tbox">{{ unit.size }}</div>
+    <div class="tbox">{{ unit.price }}</div>
+    <div class="tbox">{{ unit.quantity }}</div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

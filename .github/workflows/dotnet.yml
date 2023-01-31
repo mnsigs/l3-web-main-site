@@ -61,7 +61,7 @@ jobs:
   #     - name: Build app
   #       run: |
   #         cd app
-  #         dotnet restore  
+  #         dotnet restore
   #         dotnet build --no-restore
   #         dotnet test --no-build --verbosity normal
   #         dotnet publish app.csproj -c Release -o app
