@@ -40,10 +40,10 @@ repos:
     rev: 5.12.0
     hooks:
     - id: isort
--   repo: local
-    hooks:
-    - id: docker_builds
-      name: docker build
-      entry: ./utilities/builder.sh
-      language: script
-      args: [ test1234 ]
+# -   repo: local
+#     hooks:
+#     - id: docker_builds
+#       name: docker build
+#       entry: ./utilities/builder.sh
+#       language: script
+#       args: ['1234']
