@@ -1,4 +1,4 @@
-from flask import Flask, make_response, render_template
+from flask import Flask, render_template
 
 # from markupsafe import escape
 
@@ -22,10 +22,13 @@ def about():
 
 
 @app.errorhandler(404)
-def not_found(error):
-    resp = make_response(render_template("error.html"), 404)
-    resp.headers["X-Something"] = "A value"
-    return resp
+def page_not_found(e):
+    return render_template("404.html"), 404
+
+
+@app.errorhandler(500)
+def internal_server_error(e):
+    return render_template("500.html"), 500
 
 
 def main():
