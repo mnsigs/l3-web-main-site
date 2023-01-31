@@ -13,3 +13,9 @@ variable "location" {
   description = "Azure Region"
   default     = "eastus"
 }
+
+variable "env" {
+  type        = string
+  description = "Environment"
+  default     = "dev"
+}
