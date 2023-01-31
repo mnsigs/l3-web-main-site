@@ -40,10 +40,10 @@ repos:
     rev: 5.12.0
     hooks:
     - id: isort
-# -   repo: local
-#     hooks:
-#     - id: docker_builds
-#       name: docker build
-#       entry: ./utilities/builder.sh
-#       language: script
-#       args: ['1234']
+-   repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.77.0
+    hooks:
+    - id: terraform_fmt
+    - id: terraform_validate
+    - id: terraform_tflint
+    - id: terraform_checkov
