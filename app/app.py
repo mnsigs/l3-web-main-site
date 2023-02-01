@@ -34,7 +34,7 @@ def create_app(secure_client_credential=None):
     aad_configuration = AADConfig.parse_json(
         "aad.b2c.config.json"
     )  # parse the aad configs
-    app.logger.level = logging.INFO  # can set to DEBUG for verbose logs
+    app.logger.level = logging.DEBUG  # can set to DEBUG for verbose logs
     if app.config.get("ENV") == "production":
         # The following is required to run on Azure App Service or any other host with reverse proxy:
         from werkzeug.middleware.proxy_fix import ProxyFix
