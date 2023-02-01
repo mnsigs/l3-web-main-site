@@ -106,6 +106,7 @@ def create_app(secure_client_credential=None):
 
         return render_template("auth/status.html")
 
+    @app.route("/token")
     @app.route("/token_details")
     @ms_identity_web.login_required  # <-- developer only needs to hook up login-required endpoint like this
     def token_details():
