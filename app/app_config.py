@@ -7,3 +7,5 @@ SESSION_TYPE = "filesystem"
 SAMPLE_DESCRIPTION = (
     "B2C Authentication: Use MSAL Python to sign users into your Azure AD B2C tenant"
 )
+
+ENV = "production"
