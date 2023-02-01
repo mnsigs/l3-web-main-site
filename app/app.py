@@ -51,6 +51,12 @@ def create_app(secure_client_credential=None):
     @app.route("/index")
     @app.route("/index.html")
     def index():
+        app.logger.debug("this is a DEBUG message")
+        app.logger.info("this is an INFO message")
+        app.logger.warning("this is a WARNING message")
+        app.logger.error("this is an ERROR message")
+        app.logger.critical("this is a CRITICAL message")
+
         return render_template("pages/index.html")
 
     @app.route("/about")
@@ -103,9 +109,13 @@ def create_app(secure_client_credential=None):
 
 
 if __name__ == "__main__":
-    app = (
-        create_app()
-    )  # this is for running flask's dev server for local testing purposes ONLY
+    app = create_app()
     app.run(ssl_context="adhoc")  # create an adhoc ssl cert for HTTPS on 127.0.0.1
+else:
+    app = create_app()
+    gunicorn_logger = logging.getLogger("gunicorn.error")
+    app.logger.handlers = gunicorn_logger.handlers
+    app.logger.setLevel(gunicorn_logger.level)
+
 
 app = create_app()
