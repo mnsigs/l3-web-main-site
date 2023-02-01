@@ -433,4 +433,7 @@ utilities/
 
 name.txt
 infra/.terraform.lock.hcl
+
+# B2C stuff
 aad.b2c.config.json
+flask_session/
