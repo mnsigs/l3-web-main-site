@@ -8,6 +8,8 @@ click==8.1.3
 decorator==5.1.1
 executing==1.2.0
 Flask==2.2.2
+flask-session~=0.3.2
+git+https://github.com/azure-samples/ms-identity-python-utilities
 gunicorn==20.1.0
 idna==3.4
 ipython==8.8.0
@@ -24,6 +26,7 @@ ptyprocess==0.7.0
 pure-eval==0.2.2
 pydantic==1.10.4
 Pygments==2.14.0
+pyopenSSL
 requests==2.28.2
 six==1.16.0
 stack-data==0.6.2
