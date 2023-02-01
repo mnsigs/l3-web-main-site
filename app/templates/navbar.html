@@ -14,10 +14,20 @@
                 <li class="headerLink"><a href="/contact">Contact</a></li>
                 <li class="headerLink"><a href="/gallery">Gallery</a></li>
                 <li class="headerLink"><a href="/officers">Officers</a></li>
-                <li class="headerLink"><a href="/login">Login</a></li>
+                {% if g.identity_context_data.authenticated %}
+                <li class="headerLink">
+                    <a href="{{ ms_id_url_for('sign_out') }}">Sign Out</a>
+                </li>
+                <li class="headerLink">
+                    <a href="{{ ms_id_url_for('edit_profile') }}">Hello {{
+                        g.identity_context_data._id_token_claims.get("given_name") }}!</a>
+                </li>
+                {% else %}
+                <li class="headerLink"><a href="{{ ms_id_url_for('sign_in') }}">Sign In/Sign Up</a></li>
+                {% endif %}
             </ul>
-        </nav>
-        </div>
+    </nav>
+    </div>
     </nav>
     {% endblock %}
 </header>

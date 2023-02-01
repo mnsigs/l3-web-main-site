@@ -1,10 +1,10 @@
-{% extends 'content.html' %}
+{% extends 'base.html' %}
 
 {% block header %}
-    {{ "You're signed in, " + g.identity_context_data.username + "!" if g.identity_context_data.authenticated else "You're not signed in."}}
+    {{ "You're signed in, " + g.identity_context_data._id_token_claims.get("given_name") + "!" if g.identity_context_data.authenticated else "You're not signed in."}}
 {% endblock %}
 
-{% block text %}
+{% block content %}
     {% if g.identity_context_data.authenticated %}
         Click here to get your <a class="btn btn-info p-1" href="{{ url_for('token_details') }}">ID Token Details</a>
         or <a class="btn btn-info p-1" href="{{ ms_id_url_for('edit_profile') }}">Edit Profile</a>

@@ -1,4 +1,4 @@
-{% extends 'content.html' %}
+{% extends 'base.html' %}
 
 {% set exclude_claims = ['iat', 'exp', 'nbf', 'uti', 'aio'] %}
 
@@ -6,7 +6,7 @@
     ID Token Details
 {% endblock %}
 
-{% block text %}
+{% block content %}
     {% if g.identity_context_data.authenticated %}
         {% for claim, value in g.identity_context_data._id_token_claims.items() %}
             {% if claim not in exclude_claims %}

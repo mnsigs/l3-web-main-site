@@ -12,20 +12,25 @@ from ms_identity_web.errors import NotAuthenticatedError
 
 def create_app(secure_client_credential=None):
     app = Flask(__name__, root_path=Path(__file__).parent)  # initialize Flask app
+
     app.config.from_object(
         app_config
     )  # load Flask configuration file (e.g., session configs)
+
     Session(
         app
     )  # init the serverside session for the app: this is requireddue to large cookie size
+
     # tell flask to render the 401 template on not-authenticated error. it is not strictly required:
     app.register_error_handler(
         NotAuthenticatedError, lambda err: (render_template("auth/401.html"), err.code)
     )
+
     # comment out the previous line and uncomment the following line in order to use (experimental) <redirect to page after login>
     # app.register_error_handler(NotAuthenticatedError, lambda err: (redirect(url_for('auth.sign_in', post_sign_in_url=request.url_rule))))
     # other exceptions - uncomment to get details printed to screen:
     # app.register_error_handler(Exception, lambda err: (f"Error {err.code}: {err.description}"))
+
     aad_configuration = AADConfig.parse_json(
         "aad.b2c.config.json"
     )  # parse the aad configs
@@ -35,14 +40,17 @@ def create_app(secure_client_credential=None):
         from werkzeug.middleware.proxy_fix import ProxyFix
 
         app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
+
         # Use client credential from outside the config file, if available.
         if secure_client_credential:
             aad_configuration.client.client_credential = secure_client_credential
 
     AADConfig.sanity_check_configs(aad_configuration)
+
     adapter = FlaskContextAdapter(
         app
     )  # ms identity web for python: instantiate the flask adapter
+
     ms_identity_web = IdentityWebPython(
         aad_configuration, adapter
     )  # then instantiate ms identity web for python
@@ -95,6 +103,7 @@ def create_app(secure_client_credential=None):
 
     @app.route("/sign_in_status")
     def status():
+
         return render_template("auth/status.html")
 
     @app.route("/token_details")
