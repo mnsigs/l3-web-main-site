@@ -433,3 +433,4 @@ utilities/
 
 name.txt
 infra/.terraform.lock.hcl
+aad.b2c.config.json
