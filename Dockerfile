@@ -7,6 +7,6 @@ RUN pip install -r requirements.txt
 
 COPY app .
 
-EXPOSE 5000
+EXPOSE 443
 
-CMD gunicorn --bind :5000 --workers 2 app:app
+CMD gunicorn --bind :443 app:app
