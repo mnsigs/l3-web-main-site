@@ -404,7 +404,10 @@ ClientBin/
 ~$*
 
 
-# Sample code 
+# Sample code
 dotnet-docker-main/
 
 *.old
+
+# Exclude the aad b2c config
+aad.b2c.config.json
